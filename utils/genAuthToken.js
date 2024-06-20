@@ -4,11 +4,12 @@ const genAuthToken = (user) => {
   const token = jwt.sign(
     {
       _id: user._id,
-      name: user.name,
+      firstName: user.firstName,
+      LastName: user.LastName,
       email: user.email,
     },
     secretKey
   );
   return token;
 };
-module.exports =genAuthToken; 
+module.exports = genAuthToken;
