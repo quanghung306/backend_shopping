@@ -6,7 +6,7 @@ const login = require("./routes/login");
 const stripe = require("./routes/stripe");
 const productsRouter = require("./routes/products");
 
-const products = require("./models/product");
+ const products = require("./products");
 const app = express();
 require("dotenv").config();
 

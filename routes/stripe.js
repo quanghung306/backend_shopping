@@ -1,3 +1,4 @@
+
 const express = require("express");
 const Stripe = require("stripe");
 const product = require("../models/product");
@@ -9,7 +10,7 @@ router.post("/create-checkout-session", async (req, res) => {
   const customer = await stripe.customers.create({
     metadata: {
       userId: req.body.userId,
-      cart: JSON.stringify(req.body.cartItems),
+      cart: JSON.stringify(req.body.product),
     },
   });
   const line_items = req.body.cartItems.map((item) => {
@@ -18,8 +19,7 @@ router.post("/create-checkout-session", async (req, res) => {
         currency: "VND",
         product_data: {
           name: item.title,
-          images: [item.image],
-          description: item.description,
+          images: [item.image?.url],
           metadata: {
             id: item.id,
           },
