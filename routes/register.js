@@ -4,8 +4,9 @@ const express = require("express");
 const { User } = require("../models/user");
 const genAuthToken = require("../utils/genAuthToken");
 
+
 const router = express.Router();
-router.post("/", async (req, res) => {
+router.post("/",  async (req, res) => {
   const schema = Joi.object({
     firstName: Joi.string().min(3).max(30).required(),
     lastName: Joi.string().min(3).max(30).required(),

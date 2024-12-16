@@ -7,7 +7,7 @@ const genAuthToken = (user) => {
       firstName: user.firstName,
       LastName: user.LastName,
       email: user.email,
-      isAdmin:user.isAdmin
+      isAdmin:user.isAdmin,
     },
     secretKey
   );

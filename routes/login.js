@@ -3,7 +3,6 @@ const Joi = require("joi");
 const express = require("express");
 const  {User}  = require("../models/user");
 const genAuthToken = require("../utils/genAuthToken");
-
 const router = express.Router();
 router.post("/", async (req, res) => {
   const schema = Joi.object({
