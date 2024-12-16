@@ -2,8 +2,9 @@ const express = require("express");
 const router =express.Router();
 const cloudinary= require("../utils/cloudinary");
 const { product } = require("../models/product");
+const {isAdmin} =require("../middleware/auth")
 //createProduct
-router.post("/",async(req,res)=>{
+router.post("/",isAdmin,async(req,res)=>{
     const {title,category,gender,description,image,price} =req.body;
     try {
         if (image) {
